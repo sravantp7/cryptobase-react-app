@@ -28,9 +28,7 @@ const App = () => {
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<Account />} />
-        <Route path='/coins/:coinId' element={<CoinPage />}>
-          <Route path=':coinId' />
-        </Route>
+        <Route path='/coins/:coinId' element={<CoinPage />} />
       </Routes>
     </ThemeProvider>
   );

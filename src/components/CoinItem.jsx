@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { Link } from 'react-router-dom';
 
 const CoinItem = ({coin}) => {
   return (
@@ -8,10 +9,12 @@ const CoinItem = ({coin}) => {
         <td><AiOutlineStar /></td>
         <td>{coin.market_cap_rank}</td>
         <td>
-            <div className='flex items-center gap-2'>
-                <img src={coin.image} alt={coin.id} className='w-6 rounded-full' />
-                <p className='hidden sm:table-cell'>{coin.name}</p>
-            </div>
+            <Link to={`/coins/${coin.id}`}>
+                <div className='flex items-center gap-2'>
+                    <img src={coin.image} alt={coin.id} className='w-6 rounded-full' />
+                    <p className='hidden sm:table-cell'>{coin.name}</p>
+                </div>
+            </Link>
         </td>
         <td className='uppercase'>{coin.symbol}</td>
         <td>${coin.current_price.toLocaleString()}</td>
