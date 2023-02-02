@@ -39,7 +39,7 @@ const Footer = () => {
               <div>
                 <form className='flex justify-center md:justify-end py-4 flex-col md:flex-row gap-2'>
                   <input className='border shadow-xl bg-primary rounded-md px-4 py-1 outline-none text-black' type="email" placeholder='Subscribe to Newsletter' />
-                  <button className='rounded-xl bg-button text-btnText px-2 font-bold w-[100px] py-1 mx-auto'>Sign Up</button>
+                  <button className='rounded-xl bg-button text-btnText px-2 font-bold w-[100px] py-1 mx-auto'>Subscribe</button>
                 </form>
               </div>
               <div className='flex gap-4 justify-center'> 
