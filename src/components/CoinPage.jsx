@@ -15,20 +15,20 @@ const CoinPage = () => {
     })
   }, [url]);
   return (
-    <div className='rounded-div my-10'>
-        <div>
-            <img src={coin.image?.large} alt="coin" />
+    <div className='rounded-div my-12 py-8'>
+        <div className='flex items-center py-8'>
+            <img src={coin.image?.large} alt="coin" className='w-20 mr-6' />
             <div>
-                <p>{coin?.name} Price</p>
+                <p className='text-3xl font-bold'>{coin?.name} Price</p>
                 <p>({coin.symbol?.toUpperCase()} / USD)</p>
             </div>
         </div>
 
-        <div>
+        <div className='grid md:grid-cols-2 gap-8'>
             {/* Left */}
             <div>
-                <div>
-                    {coin.market_data?.current_price.usd ? (<p>${coin.market_data?.current_price.usd.toLocaleString()}</p>) : (null) }
+                <div className='flex justify-between'>
+                    {coin.market_data?.current_price.usd ? (<p className='font-bold text-2xl'>${coin.market_data?.current_price.usd.toLocaleString()}</p>) : (null) }
                     <p>7 Days</p>
                 </div>
                 <div>
@@ -36,23 +36,23 @@ const CoinPage = () => {
                         <SparklinesLine color="teal" />
                     </Sparklines>
                 </div>
-                <div>
+                <div className='flex justify-between py-4'>
                     <div>
-                        <p>Market Cap</p>
+                        <p className='text-gray-500 text-sm'>Market Cap</p>
                         {coin.market_data?.market_cap ? (<p>${coin.market_data?.market_cap.usd.toLocaleString()}</p>) : (null)}
                     </div>
                     <div>
-                        <p>Volume (24h)</p>
+                        <p className='text-gray-500 text-sm'>Volume (24h)</p>
                         {coin.market_data?.total_volume ? (<p>${coin.market_data?.total_volume.usd.toLocaleString()}</p>) : (null)}
                     </div>
                 </div>
-                <div>
+                <div className='flex justify-between py-4'>
                     <div>
-                        <p>24h High</p>
+                        <p className='text-gray-500 text-sm'>24h High</p>
                         {coin.market_data?.high_24h ? (<p>${coin.market_data?.high_24h.usd.toLocaleString()}</p>) : (null)}
                     </div>
                     <div>
-                        <p>24h Low</p>
+                        <p className='text-gray-500 text-sm'>24h Low</p>
                         {coin.market_data?.low_24h ? (<p>${coin.market_data?.low_24h.usd.toLocaleString()}</p>) : (null)}
                     </div>
                 </div>
@@ -60,50 +60,50 @@ const CoinPage = () => {
 
             {/* Right */}
             <div>
-                <p>Market Stats</p>
-                <div>
+                <p className='font-bold text-xl'>Market Stats</p>
+                <div className='flex justify-between py-4'>
                     <div>
-                        <p>Market Rank</p>
+                        <p className='text-gray-500 text-sm'>Market Rank</p>
                         <p>{coin.market_cap_rank}</p>
                     </div>
                     <div>
-                        <p>Hashing Algorithm</p>
+                        <p className='text-gray-500 text-sm'>Hashing Algorithm</p>
                         <p>{coin.hashing_algorithm}</p>
                     </div>
                     <div>
-                        <p>Trust Score</p>
+                        <p className='text-gray-500 text-sm'>Trust Score</p>
                         <p>{coin.liquidity_score}</p>
                     </div>
                 </div>
-                <div>
+                <div className='flex justify-between py-4'>
                     <div>
-                        <p>Price Change (24h)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (24h)</p>
                         {coin.market_data?.price_change_percentage_24h ? (<p>{coin.market_data?.price_change_percentage_24h.toFixed(2)}%</p>) : (null)}
                     </div>
                     <div>
-                        <p>Price Change (7d)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (7d)</p>
                         {coin.market_data?.price_change_percentage_7d ? (<p>{coin.market_data?.price_change_percentage_7d.toFixed(2)}%</p>) : (null)}
                     </div>
                     <div>
-                        <p>Price Change (14d)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (14d)</p>
                         {coin.market_data?.price_change_percentage_14d ? (<p>{coin.market_data?.price_change_percentage_14d.toFixed(2)}%</p>) : (null)}
                     </div>
                 </div>
-                <div>
+                <div className='flex justify-between py-4'>
                     <div>
-                        <p>Price Change (30d)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (30d)</p>
                         {coin.market_data?.price_change_percentage_30d ? (<p>{coin.market_data?.price_change_percentage_30d.toFixed(2)}%</p>) : (null)}
                     </div>
                     <div>
-                        <p>Price Change (60d)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (60d)</p>
                         {coin.market_data?.price_change_percentage_60d ? (<p>{coin.market_data?.price_change_percentage_60d.toFixed(2)}%</p>) : (null)}
                     </div>
                     <div>
-                        <p>Price Change (1y)</p>
+                        <p className='text-gray-500 text-sm'>Price Change (1y)</p>
                         {coin.market_data?.price_change_percentage_1y ? (<p>{coin.market_data?.price_change_percentage_1y.toFixed(2)}%</p>) : (null)}
                     </div>
                 </div>
-                <div className='flex'>
+                <div className='flex w-[60%] justify-between items-center mx-auto py-4 text-accent'>
                     <FaTwitter />
                     <FaFacebook />
                     <FaReddit />
@@ -113,8 +113,8 @@ const CoinPage = () => {
         </div>
 
         {/* Coin Details */}
-        <div>
-            <p>About {coin.name}</p>
+        <div className='mt-4'>
+            <p className='font-bold text-xl py-2'>About {coin.name}</p>
             {/* Using dompurify package to get rid of link tags in description */}
             <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(coin.description ? coin.description?.en : ''), }}></p>
         </div>
