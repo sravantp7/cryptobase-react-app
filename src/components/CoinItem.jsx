@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
-import { Sparklines, SparklinesBars, SparklinesLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 const CoinItem = ({coin}) => {
   return (
@@ -22,7 +22,7 @@ const CoinItem = ({coin}) => {
         <td className='w-[180px] hidden sm:table-cell'>{coin.market_cap.toLocaleString()}</td>
         <td>
             <Sparklines data={coin.sparkline_in_7d.price}>
-            <SparklinesLine color="teal" />
+                <SparklinesLine color="teal" />
             </Sparklines>
         </td>
     </tr>

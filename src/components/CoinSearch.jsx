@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import CoinItem from './CoinItem';
 
 const CoinSearch = ({coins}) => {
-  console.log(coins);
   const [searchCoin, setSearchCoin] = useState('');
 
   const handleChange = (e) => {
