@@ -5,9 +5,9 @@ const Account = () => {
   return (
     <div>
       {/* Account section */}
-      <div>
+      <div className='rounded-div my-10 flex justify-between items-center py-4'>
         <div>
-          <h1>Account</h1>
+          <h1 className='font-bold'>Account</h1>
           <div>
             <p>Welcome, User</p>
           </div>
@@ -18,9 +18,9 @@ const Account = () => {
       </div>
 
       {/* WatchList section */}
-      <div>
+      <div className='rounded-div'>
         <div>
-          <h1>Watch List</h1>
+          <h1 className='font-bold'>Watch List</h1>
           <SavedCoins />
         </div>
       </div>
